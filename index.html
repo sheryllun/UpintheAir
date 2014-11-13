@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Up In The Air: A Flight Visualizer</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="pageTop">
+    <div id="clouds">
+      <div class="cloud x1"></div>
+      <div class="cloud x2"></div>
+      <div class="cloud x3"></div>
+      <div class="cloud x4"></div>
+      <div class="cloud x5"></div>
+      <div class="cloud x6"></div>
+      <div class="cloud x7"></div>
+    </div>
+    <div id="planewindow">
+      <img src="img/airplane-windows.png" alt="background">
+    </div>
+    <div id="welcome">
+      <h1 id="title">Up in the Air</h1>
+      <h2>A Flight Visualizer</h2>
+    </div>
+    <div id="formholder">
+      <form id="flightform">
+      <h1 id="formtitle">Enter your flight info</h1>
+        <div>
+          <label for="depart">Departing Airport:</label>
+          <input id="depart" name="depart" type="text"placeholder="e.g. SFO" maxlength="3">
+        </div>
+        <div>
+          <label for="arrive">Arrival Airport:</label>
+          <input type="text" name="arrive" id="arrive" placeholder="e.g. LAX" maxlength="3">
+        </div>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+
+  <div id="map">
+  <p>Here is some text.</p>
+    <iframe
+      width="100%"
+      height="450"
+      frameborder="0" style="border:0">
+    </iframe>
+  </div>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/jquery-scrollto.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
