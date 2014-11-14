@@ -10,6 +10,7 @@ $('#flightform').submit(function() {
 });
 
 function queryTravel() {
+  $('#tempframe').remove();
   var departAirport = $('#depart').val().toUpperCase();
   var arriveAirport = $('#arrive').val().toUpperCase();
   for(var i = 0; i < airportData.length; i++) {
@@ -27,6 +28,3 @@ function queryTravel() {
   $('iframe').attr('src', mapsURL);
   $('#map').ScrollTo();
 }
-
-
-

@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <title>Up In The Air: A Flight Visualizer</title>
   <link rel="stylesheet" href="css/normalize.css">
-  <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Enriqueta' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -23,28 +23,34 @@
     <div id="planewindow">
       <img src="img/airplane-windows.png" alt="background">
     </div>
+
     <div id="welcome">
       <h1 id="title">Up in the Air</h1>
-      <h2>A Flight Visualizer</h2>
-    </div>
-    <div id="formholder">
+      <h2 id="tagline">A Flight Visualizer</h2>
+
       <form id="flightform">
-      <h1 id="formtitle">Enter your flight info</h1>
+      <h2 id="formtitle">Enter your flight information:</h2>
         <div>
-          <label for="depart">Departing Airport:</label>
-          <input id="depart" name="depart" type="text"placeholder="e.g. SFO" maxlength="3">
+          <label for="depart">Departure Airport:</label>
+          <input class="inputBox" id="depart" name="depart" type="text"placeholder="e.g. SFO" maxlength="3">
         </div>
         <div>
           <label for="arrive">Arrival Airport:</label>
-          <input type="text" name="arrive" id="arrive" placeholder="e.g. LAX" maxlength="3">
+          <input class="inputBox" type="text" name="arrive" id="arrive" placeholder="e.g. JFK" maxlength="3">
         </div>
-        <input type="submit" value="Submit">
+        <input id="submit" type="submit" value="Submit">
       </form>
     </div>
   </div>
 
   <div id="map">
-  <p>Here is some text.</p>
+    <div class="heading">
+    <div class="arrow"></div>
+      <h1 id="route">Your Flight Route:</h1>
+    </div>
+    <div id="tempframe">
+      <h1>Please enter your flight details to see your route.</h1>
+    </div>
     <iframe
       width="100%"
       height="450"

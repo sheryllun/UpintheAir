@@ -1,13 +1,13 @@
+html {
+  overflow-x: hidden;
+}
+
 body {
    overflow-x: hidden;
-   font: 18px 'Ubuntu Condensed';
+   font: 18px 'Enriqueta';
 }
 
 .pageTop {
-/*  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  text-align: center;*/
   height: 100vh;
   background-color: RGBA(174, 174, 174, 1);
   position: relative;
@@ -23,41 +23,58 @@ img {
   height: 100vh;
 }
 
-#welcome, #formholder {
-  position: absolute;
-  top: 150px;
-  padding: 3%;
-  background: RGBA(255,255,255,.3);
-  border-radius: 25px;
-    height: 200px;
-}
-
 #welcome {
+  position: absolute;
+  top: 80px;
+  padding: 5px;
+  background: RGBA(255,255,255,.5);
   text-align: center;
-  left: 80px;
-}
-
-
-#formholder {
-  width: 30%;
-  left: 50%;
-
-
+  left: 30%;
+  width: 50%;
 }
 
 #title {
-  font: 65px 'Chewy';
+  font: 65px 'Poiret One';
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 25px auto 10px auto;
+}
+
+#tagline {
+  margin: 10px auto 40px auto;
 }
 
 #formtitle {
-  font-family: 'Chewy';
+  font: 24px 'Poiret One';
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 65px;
 }
 
-#map {
-  height: 100vh;
-  position: relative;
-  border: 1px solid black;
+.inputBox {
+  width: 100px;
+  margin: 6px;
+  border-radius: 5px;
+  border: 2px solid #757575;
+  padding: 5px;
+  background: transparent;
 }
+
+#submit {
+  font: 24px'Poiret One';
+  text-transform: uppercase;
+  padding: 5px 25px;
+  border: 2px solid black;
+  background: transparent;
+  border-radius: 5px;
+  margin: 10px auto;
+}
+
+#submit:hover {
+  border: 2px solid #08A1E4;
+  color: #08A1E4;
+}
+
 
 /*====================================================
 Fluffy clouds CSS!
@@ -198,7 +215,7 @@ Fluffy clouds CSS!
   -o-transform: scale(0.2);
   opacity: .7;
   
-   -webkit-animation: moveclouds 30s linear infinite;
+  -webkit-animation: moveclouds 30s linear infinite;
   -moz-animation: moveclouds 30s linear infinite;
   -o-animation: moveclouds 30s linear infinite;
 }
@@ -217,7 +234,43 @@ Fluffy clouds CSS!
   0% {margin-left: 1200px;}
   100% {margin-left: -1000px;}
 }
-
 /*====================================================
 END Fluffy clouds CSS
+
+Start MAP portion CSS
 ====================================================*/
+
+#map {
+  height: 100vh;
+  position: relative;
+  width: 100%;
+}
+
+.heading {
+  border-top: 10px solid #CCC;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-top: 40px solid #CCC;
+  margin-left: 80%;
+}
+
+#route {
+  margin-top: 0;
+  padding: 0 35px;
+}
+
+#tempframe {
+  position: absolute;
+  background: #88959C;
+  color: white;
+  width: 30%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 5px 0;
+  left: 30%;
+}
