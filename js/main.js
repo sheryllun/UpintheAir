@@ -4,7 +4,7 @@ $.getJSON('https://dl.dropboxusercontent.com/u/4292615/airports.json', function(
     airportData = data;
   });
 
-$('#flightform').submit(function() {
+$('#flightform').submit(function(event) {
   event.preventDefault();
   queryTravel();
 });
