@@ -28,3 +28,7 @@ function queryTravel() {
   $('iframe').attr('src', mapsURL);
   $('#map').ScrollTo();
 }
+
+$('.uparrow').click(function() {
+  $('.pageTop').ScrollTo();
+});

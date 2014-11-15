@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <title>Up In The Air: A Flight Visualizer</title>
+  <title>Up In The Air: Flight Path Visualizer</title>
   <link rel="stylesheet" href="css/normalize.css">
-  <link href='http://fonts.googleapis.com/css?family=Enriqueta' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -26,16 +26,16 @@
 
     <div id="welcome">
       <h1 id="title">Up in the Air</h1>
-      <h2 id="tagline">A Flight Visualizer</h2>
+      <h2 id="tagline">Flight Path Visualizer</h2>
 
       <form id="flightform">
       <h2 id="formtitle">Enter your flight information:</h2>
         <div>
-          <label for="depart">Departure Airport:</label>
+          <label for="depart">departure airport:</label>
           <input class="inputBox" id="depart" name="depart" type="text"placeholder="e.g. SFO" maxlength="3">
         </div>
         <div>
-          <label for="arrive">Arrival Airport:</label>
+          <label for="arrive">arrival airport:</label>
           <input class="inputBox" type="text" name="arrive" id="arrive" placeholder="e.g. JFK" maxlength="3">
         </div>
         <input id="submit" type="submit" value="Submit">
@@ -45,11 +45,11 @@
 
   <div id="map">
     <div class="heading">
-    <div class="arrow"></div>
-      <h1 id="route">Your Flight Route:</h1>
+    <div class="decorativearrow"></div>
+      <h1 class="headingtext">Your Flight Route:</h1>
     </div>
     <div id="tempframe">
-      <h1>Please enter your flight details to see your route.</h1>
+      <h1>Please enter your flight details to see your route</h1>
     </div>
     <div class="overlay" onClick="style.pointerEvents='none'"></div>
     <iframe
@@ -57,7 +57,17 @@
       height="450"
       frameborder="0" style="border:0">
     </iframe>
+    <div class="uparrow"></div>
   </div>
+
+  <div id="facts">
+    <div class="heading white">
+      <div class="decorativearrow white"></div>
+      <h1 class="headingtext">Fun Facts about your trip:</h1>
+    </div>
+    <div class="uparrow"></div>
+  </div>
+
   <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/jquery-scrollto.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
