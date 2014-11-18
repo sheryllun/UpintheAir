@@ -13,15 +13,16 @@ body {
   height: 100vh;
   background-color: RGBA(174, 174, 174, 1);
   position: relative;
+  width: 100%;
 }
 
 #planewindow {
   position: absolute;
   top: 0;
   left: 0;
-}
-
-img {
+  background: url("../img/airplane-windows.png") no-repeat center center;
+  background-size: cover;
+  width: 100%;
   height: 100vh;
 }
 
