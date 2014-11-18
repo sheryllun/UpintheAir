@@ -348,6 +348,17 @@ Facts portion CSS
   border-top-color: white;
 }
 
+.topics {
+  box-sizing: border-box;
+  width: 40%;
+  height: 23vh;
+  border: 1px solid black;
+  border-top: 14px solid #008FDB;
+  text-align: right;
+  border-radius: 10px;
+  padding: 0 45px;
+}
+
 /*=================================
 Media Queries
 =================================*/
