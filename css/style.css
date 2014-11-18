@@ -34,11 +34,12 @@ body {
   text-align: center;
   left: 30%;
   width: 50%;
-  border-radius: 80px;
+  height: 70vh;
+  border-radius: 70px;
 }
 
 #title {
-  font: 65px 'Poiret One';
+  font: 55px 'Poiret One';
   text-transform: uppercase;
   font-weight: bold;
   margin: 25px auto 10px auto;
@@ -54,7 +55,7 @@ body {
   font: 24px 'Poiret One';
   text-transform: uppercase;
   font-weight: bold;
-  margin-top: 65px;
+  margin-top: 45px;
 }
 
 .inputBox {
@@ -346,3 +347,21 @@ Facts portion CSS
 .white {
   border-top-color: white;
 }
+
+/*=================================
+Media Queries
+=================================*/
+@media screen and (max-width: 924px) {
+  #title {
+    font-size: 2em;
+  }
+
+  #tagline {
+    font-size: 1.5em;
+  }
+
+  #formtitle, #submit {
+    font-size: 1em;
+  }
+}
+
