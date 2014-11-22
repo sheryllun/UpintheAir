@@ -21,11 +21,11 @@
       <div class="cloud x7"></div>
     </div>
 
-    <div id="planewindow"></div>
+    <div class="planewindow"></div>
 
-    <div id="welcome">
-      <h1 id="title">Up in the Air</h1>
-      <h2 id="tagline">Flight Path Visualizer</h2>
+    <div class="welcome">
+      <h1 class="title">Up in the Air</h1>
+      <h2 class="tagline">Flight Path Visualizer</h2>
 
       <form id="flightform">
       <h2 id="formtitle">Enter your flight information:</h2>
@@ -45,42 +45,43 @@
   <div id="map">
     <div class="heading">
     <div class="decorativearrow"></div>
-      <h1 class="headingtext">Your Flight Route:</h1>
+      <h3 class="headingtext">Your Flight Route:</h3>
     </div>
     <div id="tempframe">
-      <h1>Please enter your flight details to see your route</h1>
+      <h3>Please enter your flight details to see your route</h3>
     </div>
     <div class="overlay" onClick="style.pointerEvents='none'"></div>
     <iframe
       width="100%"
-      height="450"
       frameborder="0" style="border:0">
     </iframe>
-    <div class="uparrow"></div>
+    <div class="btnwrapper">
+      <button class="factsbtn">Tell me more!</button>
+    </div>
   </div>
 
-  <div id="facts">
+  <div class="facts hide">
     <div class="heading white">
       <div class="decorativearrow white"></div>
-      <h1 class="headingtext">Fun Facts about your trip:</h1>
+      <h3 class="headingtext">Fun Facts about your trip:</h3>
     </div>
     <div class="topics">
-      <h1>At A Glance</h1>
-      <p>&#62;&#62;</p>
+      <h3 class="topicname">At A Glance</h3>
+      <p class="topicname">&#62;&#62;</p>
     </div>
     <div class="topics">
-      <h1>In The Air</h1>
-      <p>&#62;&#62;</p>
+      <h3 class="topicname">In The Air</h3>
+      <p class="topicname">&#62;&#62;</p>
     </div>
     <div class="topics">
-      <h1>In Your Flight</h1>
-      <p>&#62;&#62;</p>
+      <h3 class="topicname">In Your Flight</h3>
+      <p class="topicname">&#62;&#62;</p>
     </div>
-    <div class="uparrow"></div>
   </div>
 
   <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/jquery-scrollto.js"></script>
+  <script type="text/javascript" src="js/jquery.goup.min.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

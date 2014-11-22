@@ -16,7 +16,7 @@ body {
   width: 100%;
 }
 
-#planewindow {
+.planewindow {
   position: absolute;
   top: 0;
   left: 0;
@@ -26,7 +26,7 @@ body {
   height: 100vh;
 }
 
-#welcome {
+.welcome {
   position: absolute;
   top: 80px;
   padding: 5px;
@@ -38,14 +38,14 @@ body {
   border-radius: 70px;
 }
 
-#title {
+.title {
   font: 55px 'Poiret One';
   text-transform: uppercase;
   font-weight: bold;
   margin: 25px auto 10px auto;
 }
 
-#tagline {
+.tagline {
   margin: 10px auto 40px auto;
   font-weight: 400;
   font-size: 32px;
@@ -69,7 +69,7 @@ body {
   font-weight: 700;
 }
 
-#submit {
+#submit, .factsbtn {
   font: 24px'Poiret One';
   text-transform: uppercase;
   padding: 5px 25px;
@@ -79,7 +79,7 @@ body {
   margin: 20px auto 40px auto;
 }
 
-#submit:hover {
+#submit:hover, .factsbtn:hover {
   border: 2px solid #008FDB;
   color: #008FDB;
 }
@@ -253,6 +253,10 @@ Start MAP portion CSS
   width: 100%;
 }
 
+iframe {
+  height: 70vh;
+}
+
 .overlay {
    background:transparent; 
    position:relative; 
@@ -263,7 +267,7 @@ Start MAP portion CSS
 }
 
 .heading {
-  border-top: 10px solid #CCC;
+  border-top: 8px solid #CCC;
 }
 
 .decorativearrow {
@@ -279,6 +283,7 @@ Start MAP portion CSS
   margin-top: 0;
   padding: 0 35px;
   font-weight: 300;
+  font-size: 2em;
 }
 
 #tempframe {
@@ -291,57 +296,33 @@ Start MAP portion CSS
   left: 35%;
 }
 
-#tempframe > h1 {
+#tempframe > h3 {
   font-weight: 300;
 }
 
-/*=================================
-up arrow css
-=================================*/
-
-.uparrow {
-  width: 30px;
-  height: 30px;
-  border-radius: 100%;
-  border: 2px solid black;
-  margin: 0 auto;
-  position: relative;
+.btnwrapper {
+  text-align: center;
+  width: 100%;
 }
 
-.uparrow:before, .uparrow:after {
-  content: '';
-  position: absolute;
-  border: 2px solid black;
-  top: 7px;
-  height: 10px;
+.factsbtn {
+  display: none;
+  margin-top: 5px;
+  font-size: 20px;
+  padding: 5px 15px;
 }
 
-.uparrow:before {
-  transform: rotateZ(45deg);
-  -webkit-transform: rotateZ(45deg);
-  -moz-transform: rotateZ(45deg);
-  -o-transform: rotateZ(45deg);
-  left: 10px;
-}
-
-.uparrow:after {
-  transform: rotateZ(-45deg);
-  -webkit-transform: rotateZ(-45deg);
-  -moz-transform: rotateZ(-45deg);
-  -o-transform: rotateZ(-45deg);
-  left: 17px;
-}
-
-.uparrow:hover, .uparrow:hover:before, .uparrow:hover:after {
-  border-color: #008FDB;
-}
 
 /*=================================
 Facts portion CSS
 =================================*/
-#facts {
+.facts {
   height: 100vh;
   background-color: #CCC;
+}
+
+.hide {
+  display: none;
 }
 
 .white {
@@ -350,13 +331,22 @@ Facts portion CSS
 
 .topics {
   box-sizing: border-box;
-  width: 40%;
+  width: 30%;
   height: 23vh;
-  border: 1px solid black;
   border-top: 14px solid #008FDB;
   text-align: right;
   border-radius: 10px;
   padding: 0 45px;
+  background: white;
+  -webkit-box-shadow: 5px 5px 10px #888;
+  -moz-box-shadow: 5px 5px 10px #888;
+  -o-box-shadow: 5px 5px 10px #888;
+  box-shadow: 5px 5px 10px #888;
+  margin-bottom: 5px;
+}
+
+.topicname {
+  font-size: 1.5em;
 }
 
 /*=================================
@@ -373,6 +363,11 @@ Media Queries
 
   #formtitle, #submit {
     font-size: 1em;
+  }
+
+  .topicname {
+    display: inline;
+    font-size: 1.4em;
   }
 }
 

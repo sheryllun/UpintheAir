@@ -4,6 +4,34 @@ $.getJSON('https://dl.dropboxusercontent.com/u/4292615/airports.json', function(
     airportData = data;
   });
 
+// $.ajax({
+//   url: 'https://spreadsheets.google.com/feeds/list/1-v8yqBqu1F_YuKritxFTFN8rPJSJ9KXTAX8SSHf0bcs/ozlx73/public/values?alt=json',
+//   dataType: 'jsonp',
+//   success: function(data) {
+//     console.log(data);
+//     console.log(data.feed.entry[10].gsx$iata.$t);
+//   }
+// });
+
+
+// $.ajax({
+//   url: 'https://s3.amazonaws.com/airportinformation/airports.json',
+//   type: 'GET',
+//   dataType: 'jsonp',
+//   jsonpCallback:'flightData',
+//   success: function(data) {
+//     alert('worked');
+//     console.log(data);
+//   }
+// });
+
+// var holdData = flightData();
+
+$.goup({
+  title: 'back to top',
+  containerRadius: 100
+});
+
 $('#flightform').submit(function(event) {
   event.preventDefault();
   queryTravel();
@@ -31,12 +59,16 @@ function queryTravel() {
   var mapsURL = 'https://www.google.com/maps/embed/v1/directions?key=AIzaSyCVzYqt4JIDK3C_xMQcNssaEKeDUxf45aA&origin='+ departAirport+' '+ departCity +'&destination='+ arriveAirport+' '+arriveCity +'&mode=flying';
   $('iframe').attr('src', mapsURL);
   $('#map').ScrollTo();
+  $('.factsbtn').css('display','inline-block');
 }
 
-$('.uparrow').click(function() {
-  $('.pageTop').ScrollTo();
+$('.factsbtn').click(function() {
   calcDistance();
+  $('.facts').removeClass('hide');
+  $('.facts').ScrollTo();
 });
+
+
 
 // Spherical law of cosines calculation script from http://www.movable-type.co.uk/scripts/latlong.html
 
