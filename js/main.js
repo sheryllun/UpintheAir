@@ -4,6 +4,52 @@ $.getJSON('https://dl.dropboxusercontent.com/u/4292615/airports.json', function(
     airportData = data;
   });
 
+var planeFacts = {
+  longDistance: {
+    cruisingAlt: 39000,
+    avgSpeed: 550,
+    hoursInAir: function(distance) {
+      var time = ((distance / this.avgSpeed)*60) + 60;
+      var hours = Math.floor(time/60);
+      var minutes = Math.round(time % 60);
+      return hours + " hours and " + minutes + " minutes";
+    },
+    planeType: "Boeing 767, Boeing 777, and Airbus A380",
+    flightAttendants: "4-6",
+    avgPeople: "250-375",
+    meal: "Very likely"
+  },
+  medDistance: {
+    cruisingAlt: 35000,
+    avgSpeed: 530,
+    hoursInAir: function(distance) {
+      var time = ((distance / this.avgSpeed)*60) + 60;
+      var hours = Math.floor(time/60);
+      var minutes = Math.round(time % 60);
+      return hours + " hours and " + minutes + " minutes";
+    },
+    planeType: "Airbus A321, Airbus A319, and Boeing 757",
+    flightAttendants: "2-4",
+    avgPeople: "100-250",
+    meal: "Maybe, maybe not"
+  },
+  shortDistance: {
+    cruisingAlt: 34000,
+    avgSpeed: 515,
+    hoursInAir: function(distance) {
+      var time = ((distance / this.avgSpeed)*60) + 30;
+      var hours = Math.floor(time/60);
+      var minutes = Math.round(time % 60);
+      return hours + " hours and " + minutes + " minutes";
+    },
+    planeType: "Bombardier CRJ-200 and Embraer ERT-140",
+    flightAttendants: "1-2",
+    avgPeople: "20-100",
+    meal: "Highly unlikely"
+  }
+}
+
+
 // $.ajax({
 //   url: 'https://spreadsheets.google.com/feeds/list/1-v8yqBqu1F_YuKritxFTFN8rPJSJ9KXTAX8SSHf0bcs/ozlx73/public/values?alt=json',
 //   dataType: 'jsonp',
@@ -64,15 +110,15 @@ function queryTravel() {
 
 $('.factsbtn').click(function() {
   calcDistance();
+  decideWhichFacts(distanceTraveled);
+  generateStatements(whichFacts);
   $('.facts').removeClass('hide');
   $('.facts').ScrollTo();
 });
 
-
-
 // Spherical law of cosines calculation script from http://www.movable-type.co.uk/scripts/latlong.html
 
-var lat1,lat2,lon1,lon2;
+var lat1,lat2,lon1,lon2, distanceTraveled;
 
 function toRadians(coord) {
   return coord * Math.PI/180;
@@ -84,9 +130,36 @@ function calcDistance() {
       Δλ = toRadians(lon2-lon1), 
       R = 3959; // mi
 
-var distanceTraveled = Math.round(Math.acos( Math.sin(φ1)*Math.sin(φ2) + Math.cos(φ1)*Math.cos(φ2) * Math.cos(Δλ) ) * R);
-  
- console.log(distanceTraveled);
+var d = Math.round(Math.acos( Math.sin(φ1)*Math.sin(φ2) + Math.cos(φ1)*Math.cos(φ2) * Math.cos(Δλ) ) * R);
+
+ distanceTraveled = d;
 }
 
+var whichFacts;
+
+function decideWhichFacts(distance) {
+  if(distance <= 500) {
+    whichFacts = planeFacts.shortDistance;
+  }
+  else if(distance >= 3000) {
+    whichFacts = planeFacts.longDistance;
+  }
+  else {
+    whichFacts = planeFacts.medDistance;
+  }
+}
+
+//Fun Fact Statements
+function generateStatements(facts) {
+var milesStatement = "Total distance traveled: " + distanceTraveled + " miles.",
+    hoursStatement = "Number of hours in the air: " + facts.hoursInAir(distanceTraveled),
+    planesStatement = "You'll fly on a plane similar to: " + facts.planeType,
+    cruisingStatement = "Average Cruising Altitude: " + facts.cruisingAlt + " feet.",
+    speedStatement = "Average flight speed: " + facts.avgSpeed + " miles per hour",
+    passengerStatement = "Average number of passengers on your flight: " + facts.avgPeople,
+    flightAttStatement = "Number of flight attendants: " + facts.flightAttendants,
+    mealStatement = "Will a meal be served? " + facts.meal;
+
+    console.log(milesStatement + " " + hoursStatement + " " + planesStatement + " " + cruisingStatement + ' ' + speedStatement + ' ' + passengerStatement + ' ' + flightAttStatement + ' ' + mealStatement);
+}
 
