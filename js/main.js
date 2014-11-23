@@ -14,7 +14,7 @@ var planeFacts = {
       var minutes = Math.round(time % 60);
       return hours + " hours and " + minutes + " minutes";
     },
-    planeType: "Boeing 767, Boeing 777, and Airbus A380",
+    planeType: "Boeing 767,<br>Boeing 777,<br>and Airbus A380",
     flightAttendants: "4-6",
     avgPeople: "250-375",
     meal: "Very likely"
@@ -28,10 +28,10 @@ var planeFacts = {
       var minutes = Math.round(time % 60);
       return hours + " hours and " + minutes + " minutes";
     },
-    planeType: "Airbus A321, Airbus A319, and Boeing 757",
+    planeType: "Airbus A321,<br>Airbus A319,<br>and Boeing 757",
     flightAttendants: "2-4",
     avgPeople: "100-250",
-    meal: "Maybe, maybe not"
+    meal: "Maybe: depends on the generosity of your airline."
   },
   shortDistance: {
     cruisingAlt: 34000,
@@ -42,7 +42,7 @@ var planeFacts = {
       var minutes = Math.round(time % 60);
       return hours + " hours and " + minutes + " minutes";
     },
-    planeType: "Bombardier CRJ-200 and Embraer ERT-140",
+    planeType: "Bombardier CRJ-200 and<br>Embraer ERT-140",
     flightAttendants: "1-2",
     avgPeople: "20-100",
     meal: "Probably not"
@@ -121,7 +121,7 @@ $('.factsbtn').click(function() {
 
 // Spherical law of cosines calculation script from http://www.movable-type.co.uk/scripts/latlong.html
 
-var lat1,lat2,lon1,lon2, distanceTraveled;
+var lat1,lat2,lon1,lon2, distanceTraveled, whichFacts;
 
 function toRadians(coord) {
   return coord * Math.PI/180;
@@ -138,8 +138,6 @@ var d = Math.round(Math.acos( Math.sin(φ1)*Math.sin(φ2) + Math.cos(φ1)*Math.c
  distanceTraveled = d;
 }
 
-var whichFacts;
-
 function decideWhichFacts(distance) {
   if(distance <= 500) {
     whichFacts = planeFacts.shortDistance;
@@ -154,9 +152,8 @@ function decideWhichFacts(distance) {
 
 //Fun Fact Statements
 function generateStatements(facts) {
-
     $('.glance.n1').html('<h3 class="facttitle">Total Distance Traveled: <h2 class="factoid">' + distanceTraveled +'</h2><p class="comment">miles</p>');
-    $('.glance.n2').html('<h3 class="facttitle">Number of hours in the air: <h2 class="factoid">' + facts.hoursInAir(distanceTraveled) +'</h2><p class="comment">*Estimate is based on a non-stop flight, and does not factor in head/tail-winds or multiple boarding and unloading procedures. It is simply how many hours you will be up in the air!</p>');
+    $('.glance.n2').html('<h3 class="facttitle">Number of hours in the air: <h2 class="factoid">' + facts.hoursInAir(distanceTraveled) +'</h2><p class="comment">Estimate is based on a non-stop flight, and does not factor in head/tail-winds, multiple boarding and unloading procedures, or how drunk your pilot might be. It is simply how many hours you will be up in the air!</p>');
     $('.glance.n3').html('<h3 class="facttitle">You\'ll fly on a plane similar to: <h2 class="factoid">' + facts.planeType +'</h2><p class="comment">woohoo</p>');
 
     $('.air.n1').html('<h3 class="facttitle">Cruising Altitude</h3><h2 class="factoid">' + facts.cruisingAlt +'</h2><p class="comment">feet</p>');
