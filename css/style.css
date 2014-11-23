@@ -51,6 +51,10 @@ body {
   font-size: 32px;
 }
 
+#flightform {
+  text-align: center;
+}
+
 #formtitle {
   font: 24px 'Poiret One';
   text-transform: uppercase;
@@ -58,7 +62,15 @@ body {
   margin-top: 45px;
 }
 
+
+label {
+  display: inline-block;
+  text-align: center;
+  width: 250px;
+}
+
 .inputBox {
+  display: inline-block;
   width: 100px;
   margin: 6px;
   border-radius: 5px;
@@ -71,6 +83,7 @@ body {
 
 #submit, .factsbtn {
   font: 24px'Poiret One';
+  display: block;
   text-transform: uppercase;
   padding: 5px 25px;
   border: 2px solid black;
@@ -329,11 +342,20 @@ Facts portion CSS
   border-top-color: white;
 }
 
+.wrapper {
+  display: flex;
+}
+
+.topicsection {
+  display: inline-block;
+  width: 30%;
+}
+
 .topics {
   box-sizing: border-box;
-  width: 30%;
+  width: 100%;
   height: 23vh;
-  border-top: 14px solid #008FDB;
+  border-top: 14px solid #01A1FF;
   text-align: right;
   border-radius: 10px;
   padding: 0 45px;
@@ -343,10 +365,67 @@ Facts portion CSS
   -o-box-shadow: 5px 5px 10px #888;
   box-shadow: 5px 5px 10px #888;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .topicname {
   font-size: 1.5em;
+}
+
+.second {
+  border-top-color: #FFBC00;
+}
+
+.third {
+  border-top-color: #FF4100;
+}
+
+.carouselwrapper {
+  display: inline-block;
+  width: 65%;
+  height: 65vh;
+  align-self: center;
+  margin-left: 35px;
+}
+
+.carousel {
+  width: 90%;
+  height: 65vh;
+  margin-left: 25px;
+  border-radius: 25px;
+  background-color: white;
+  border-top: 20px solid #01A1FF;
+  -webkit-box-shadow: 5px 5px 10px #888;
+  -moz-box-shadow: 5px 5px 10px #888;
+  -o-box-shadow: 5px 5px 10px #888;
+  box-shadow: 5px 5px 10px #888;
+}
+
+.intheair {
+  border-top-color: #FFBC00;
+}
+
+.inyourflight {
+  border-top-color: #FF4100;
+}
+
+.card {
+  text-align: center;
+  height: 60vh;
+}
+
+.facttitle {
+  font-size: 1.6em;
+  font-weight: 400;
+}
+
+.factoid {wr
+  font-size: 2.5em;
+}
+
+.comment {
+  text-transform: none;
+  padding: 0 20px;
 }
 
 /*=================================

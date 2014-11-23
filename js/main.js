@@ -45,10 +45,9 @@ var planeFacts = {
     planeType: "Bombardier CRJ-200 and Embraer ERT-140",
     flightAttendants: "1-2",
     avgPeople: "20-100",
-    meal: "Highly unlikely"
+    meal: "Probably not"
   }
 }
-
 
 // $.ajax({
 //   url: 'https://spreadsheets.google.com/feeds/list/1-v8yqBqu1F_YuKritxFTFN8rPJSJ9KXTAX8SSHf0bcs/ozlx73/public/values?alt=json',
@@ -114,6 +113,10 @@ $('.factsbtn').click(function() {
   generateStatements(whichFacts);
   $('.facts').removeClass('hide');
   $('.facts').ScrollTo();
+  $('.ataglance').slick({
+  adaptiveHeight: true,
+  dots: true
+  });
 });
 
 // Spherical law of cosines calculation script from http://www.movable-type.co.uk/scripts/latlong.html
@@ -151,15 +154,43 @@ function decideWhichFacts(distance) {
 
 //Fun Fact Statements
 function generateStatements(facts) {
-var milesStatement = "Total distance traveled: " + distanceTraveled + " miles.",
-    hoursStatement = "Number of hours in the air: " + facts.hoursInAir(distanceTraveled),
-    planesStatement = "You'll fly on a plane similar to: " + facts.planeType,
-    cruisingStatement = "Average Cruising Altitude: " + facts.cruisingAlt + " feet.",
-    speedStatement = "Average flight speed: " + facts.avgSpeed + " miles per hour",
-    passengerStatement = "Average number of passengers on your flight: " + facts.avgPeople,
-    flightAttStatement = "Number of flight attendants: " + facts.flightAttendants,
-    mealStatement = "Will a meal be served? " + facts.meal;
 
-    console.log(milesStatement + " " + hoursStatement + " " + planesStatement + " " + cruisingStatement + ' ' + speedStatement + ' ' + passengerStatement + ' ' + flightAttStatement + ' ' + mealStatement);
+    $('.glance.n1').html('<h3 class="facttitle">Total Distance Traveled: <h2 class="factoid">' + distanceTraveled +'</h2><p class="comment">miles</p>');
+    $('.glance.n2').html('<h3 class="facttitle">Number of hours in the air: <h2 class="factoid">' + facts.hoursInAir(distanceTraveled) +'</h2><p class="comment">*Estimate is based on a non-stop flight, and does not factor in head/tail-winds or multiple boarding and unloading procedures. It is simply how many hours you will be up in the air!</p>');
+    $('.glance.n3').html('<h3 class="facttitle">You\'ll fly on a plane similar to: <h2 class="factoid">' + facts.planeType +'</h2><p class="comment">woohoo</p>');
+
+    $('.air.n1').html('<h3 class="facttitle">Cruising Altitude</h3><h2 class="factoid">' + facts.cruisingAlt +'</h2><p class="comment">feet</p>');
+    $('.air.n2').html('<h3 class="facttitle">Average Flight Speed</h3><h2 class="factoid">' + facts.avgSpeed +'</h2><p class="comment">miles per hour</p>');
+
+    $('.flight.n1').html('<h3 class="facttitle">There will be around</h3><h2 class="factoid">' + facts.avgPeople +'</h2><p class="comment">people on your flight</p>');
+    $('.flight.n2').html('<h3 class="facttitle">Number of Flight Attendants</h3><h2 class="factoid">' + facts.flightAttendants +'</h2><p class="comment">yay</p>');
+    $('.flight.n3').html('<h3 class="facttitle">Will a meal be served?</h3><h2 class="factoid">' + facts.meal +'</h2><p class="comment">hmmm</p>');
 }
+
+$('.first').click(function () {
+  $('.carousel').addClass('hide');
+  $('.ataglance').removeClass('hide');
+  $('.ataglance').slick({
+  adaptiveHeight: true,
+  dots: true
+  });
+});
+
+$('.second').click(function () {
+  $('.carousel').addClass('hide');
+  $('.intheair').removeClass('hide');
+  $('.intheair').slick({
+  adaptiveHeight: true,
+  dots: true
+  });
+});
+
+$('.third').click(function () {
+  $('.carousel').addClass('hide');
+  $('.inyourflight').removeClass('hide');
+  $('.inyourflight').slick({
+  adaptiveHeight: true,
+  dots: true
+  });
+});
 

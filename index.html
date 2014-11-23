@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <title>Up In The Air: Flight Path Visualizer</title>
   <link rel="stylesheet" href="css/normalize.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -20,7 +22,6 @@
       <div class="cloud x6"></div>
       <div class="cloud x7"></div>
     </div>
-
     <div class="planewindow"></div>
 
     <div class="welcome">
@@ -32,12 +33,10 @@
         <div>
           <label for="depart">departure airport:</label>
           <input class="inputBox" id="depart" name="depart" type="text"placeholder="e.g. SFO" maxlength="3">
-        </div>
-        <div>
           <label for="arrive">arrival airport:</label>
           <input class="inputBox" type="text" name="arrive" id="arrive" placeholder="e.g. JFK" maxlength="3">
+          <input id="submit" type="submit" value="Submit">
         </div>
-        <input id="submit" type="submit" value="Submit">
       </form>
     </div>
   </div>
@@ -61,27 +60,50 @@
   </div>
 
   <div class="facts hide">
+
     <div class="heading white">
       <div class="decorativearrow white"></div>
       <h3 class="headingtext">Fun Facts about your trip:</h3>
     </div>
-    <div class="topics">
-      <h3 class="topicname">At A Glance</h3>
-      <p class="topicname">&#62;&#62;</p>
-    </div>
-    <div class="topics">
-      <h3 class="topicname">In The Air</h3>
-      <p class="topicname">&#62;&#62;</p>
-    </div>
-    <div class="topics">
-      <h3 class="topicname">In Your Flight</h3>
-      <p class="topicname">&#62;&#62;</p>
+    <div class="wrapper">
+      <section class="topicsection">
+        <div class="topics first">
+          <h3 class="topicname">At A Glance</h3>
+          <p class="topicname">&#62;&#62;</p>
+        </div>
+        <div class="topics second">
+          <h3 class="topicname">In The Air</h3>
+          <p class="topicname">&#62;&#62;</p>
+        </div>
+        <div class="topics third">
+          <h3 class="topicname">In Your Flight</h3>
+          <p class="topicname">&#62;&#62;</p>
+        </div>
+
+      </section>
+      <section class="carouselwrapper">
+        <div class="carousel ataglance">
+          <div class="card glance n1"></div>
+          <div class="card glance n2"></div>
+          <div class="card glance n3"></div>
+        </div>
+        <div class="carousel intheair hide">
+          <div class="card air n1"></div>
+          <div class="card air n2"></div>
+        </div>
+        <div class="carousel inyourflight hide">
+          <div class="card flight n1"></div>
+          <div class="card flight n2"></div>
+          <div class="card flight n3"></div>
+        </div>
+      </section>
     </div>
   </div>
 
   <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/jquery-scrollto.js"></script>
   <script type="text/javascript" src="js/jquery.goup.min.js"></script>
+  <script type="text/javascript" src="slick/slick.min.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
