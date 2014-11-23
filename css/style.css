@@ -444,15 +444,15 @@ Facts portion CSS
 Media Queries
 =================================*/
 @media screen and (max-width: 924px) {
-  #title {
+  .title {
     font-size: 2em;
   }
 
-  #tagline {
+  .tagline {
     font-size: 1.5em;
   }
 
-  #formtitle, #submit {
+  .formtitle, .submit {
     font-size: 1em;
   }
 
