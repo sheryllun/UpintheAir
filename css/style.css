@@ -1,5 +1,6 @@
 html {
   overflow-x: hidden;
+  margin: 0 auto;
 }
 
 body {
@@ -36,6 +37,7 @@ body {
   width: 50%;
   height: 70vh;
   border-radius: 70px;
+  min-width: 297px;
 }
 
 .title {
@@ -53,6 +55,7 @@ body {
 
 #flightform {
   text-align: center;
+  max-width: 668px;
 }
 
 #formtitle {
@@ -440,6 +443,15 @@ Facts portion CSS
   padding: 0 20px;
 }
 
+a {
+  text-decoration: none;
+  color: #01A1FF;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 /*=================================
 Media Queries
 =================================*/
@@ -459,6 +471,12 @@ Media Queries
   .topicname {
     display: inline;
     font-size: 1.4em;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .welcome {
+    left: 20%;
   }
 }
 

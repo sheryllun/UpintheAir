@@ -14,10 +14,12 @@ var planeFacts = {
       var minutes = Math.round(time % 60);
       return hours + " hours and " + minutes + " minutes";
     },
-    planeType: "Boeing 767,<br>Boeing 777,<br>and Airbus A380",
+    planeType: "Boeing 767,<br>Boeing 777,<br>Airbus A380",
     flightAttendants: "4-6",
+    faComment: "Sweet. Service must be good.",
     avgPeople: "250-375",
-    meal: "Very likely"
+    meal: "Very likely",
+    mealComment: "Hope you're hungry."
   },
   medDistance: {
     cruisingAlt: 35000,
@@ -28,10 +30,12 @@ var planeFacts = {
       var minutes = Math.round(time % 60);
       return hours + " hours and " + minutes + " minutes";
     },
-    planeType: "Airbus A321,<br>Airbus A319,<br>and Boeing 757",
+    planeType: "Airbus A321,<br>Airbus A319,<br>Boeing 757",
     flightAttendants: "2-4",
+    faComment: "Protip: If you bring your flight attendant donuts, they will treat you better.",
     avgPeople: "100-250",
-    meal: "Maybe: depends on the generosity of your airline."
+    meal: "Maybe, maybe not.",
+    mealComment: "If your flight is international, then yes. Otherwise, prepare to pay lots of money for a soggy sandwich or bag of chips."
   },
   shortDistance: {
     cruisingAlt: 34000,
@@ -42,10 +46,12 @@ var planeFacts = {
       var minutes = Math.round(time % 60);
       return hours + " hours and " + minutes + " minutes";
     },
-    planeType: "Bombardier CRJ-200 and<br>Embraer ERT-140",
+    planeType: "Bombardier CRJ-200<br>Embraer ERT-140",
     flightAttendants: "1-2",
+    faComment: "Be nice to your flight attendant.",
     avgPeople: "20-100",
-    meal: "Probably not"
+    meal: "Probably not",
+    mealComment: "If you're lucky, you might get a bag of peanuts."
   }
 }
 
@@ -153,15 +159,15 @@ function decideWhichFacts(distance) {
 //Fun Fact Statements
 function generateStatements(facts) {
     $('.glance.n1').html('<h3 class="facttitle">Total Distance Traveled: <h2 class="factoid">' + distanceTraveled +'</h2><p class="comment">miles</p>');
-    $('.glance.n2').html('<h3 class="facttitle">Number of hours in the air: <h2 class="factoid">' + facts.hoursInAir(distanceTraveled) +'</h2><p class="comment">Estimate is based on a non-stop flight, and does not factor in head/tail-winds, multiple boarding and unloading procedures, or how drunk your pilot might be. It is simply how many hours you will be up in the air!</p>');
-    $('.glance.n3').html('<h3 class="facttitle">You\'ll fly on a plane similar to: <h2 class="factoid">' + facts.planeType +'</h2><p class="comment">woohoo</p>');
+    $('.glance.n2').html('<h3 class="facttitle">Number of hours in the air: <h2 class="factoid">' + facts.hoursInAir(distanceTraveled) +'</h2><p class="comment">Estimate is based on a non-stop flight, and does not factor in head/tail-winds, multiple boarding procedures, or how drunk your pilot might be.</p>');
+    $('.glance.n3').html('<h3 class="facttitle">You\'ll fly on a plane similar to: <h2 class="factoid">' + facts.planeType +'</h2><a href="http://www.airlines-inform.com/commercial-aircraft/" target="_blank"><p class="comment">Click here to learn more about commercial aircraft.</p></a>');
 
     $('.air.n1').html('<h3 class="facttitle">Cruising Altitude</h3><h2 class="factoid">' + facts.cruisingAlt +'</h2><p class="comment">feet</p>');
     $('.air.n2').html('<h3 class="facttitle">Average Flight Speed</h3><h2 class="factoid">' + facts.avgSpeed +'</h2><p class="comment">miles per hour</p>');
 
     $('.flight.n1').html('<h3 class="facttitle">There will be around</h3><h2 class="factoid">' + facts.avgPeople +'</h2><p class="comment">people on your flight</p>');
-    $('.flight.n2').html('<h3 class="facttitle">Number of Flight Attendants</h3><h2 class="factoid">' + facts.flightAttendants +'</h2><p class="comment">yay</p>');
-    $('.flight.n3').html('<h3 class="facttitle">Will a meal be served?</h3><h2 class="factoid">' + facts.meal +'</h2><p class="comment">hmmm</p>');
+    $('.flight.n2').html('<h3 class="facttitle">Number of Flight Attendants</h3><h2 class="factoid">' + facts.flightAttendants +'</h2><p class="comment">' + facts.faComment + '</p>');
+    $('.flight.n3').html('<h3 class="facttitle">Will a meal be served?</h3><h2 class="factoid">' + facts.meal +'</h2><p class="comment">' + facts.mealComment + '</p>');
 }
 
 $('.first').click(function () {
