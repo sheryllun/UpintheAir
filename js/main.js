@@ -1,8 +1,8 @@
 var airportData;
 
-$.getJSON('https://dl.dropboxusercontent.com/u/4292615/airports.json', function(data) {
-    airportData = data;
-  });
+// $.getJSON('https://dl.dropboxusercontent.com/u/4292615/airports.json', function(data) {
+//     airportData = data;
+//   });
 
 var planeFacts = {
   longDistance: {
@@ -55,32 +55,23 @@ var planeFacts = {
   }
 }
 
-// $.ajax({
-//   url: 'https://spreadsheets.google.com/feeds/list/1-v8yqBqu1F_YuKritxFTFN8rPJSJ9KXTAX8SSHf0bcs/ozlx73/public/values?alt=json',
-//   dataType: 'jsonp',
-//   success: function(data) {
-//     console.log(data);
-//     console.log(data.feed.entry[10].gsx$iata.$t);
-//   }
-// });
-
-
-// $.ajax({
-//   url: 'https://s3.amazonaws.com/airportinformation/airports.json',
-//   type: 'GET',
-//   dataType: 'jsonp',
-//   jsonpCallback:'flightData',
-//   success: function(data) {
-//     alert('worked');
-//     console.log(data);
-//   }
-// });
-
-// var holdData = flightData();
+$.ajax({
+  url: 'https://s3.amazonaws.com/airportinformation/airports.json',
+  type: 'GET',
+  dataType: 'json',
+  jsonpCallback:'flightData',
+  success: function(data) {
+    airportData = data;
+  }
+});
 
 $.goup({
   title: 'back to top',
   containerRadius: 100
+});
+
+$('.explain').click(function() {
+  alertify.alert('<h2>Welcome to Up in the Air</h2><p>Visualize your trip\'s flight path and learn more about your flight. Simply enter your departure and arrival airports and let us do the rest.</p><p>Even if you\'re not flying anywhere, refer to this <a href="http://www.expedia.com/daily/airports/AirportCodes.asp" target="_blank">list of airport codes</a> and enjoy!');
 });
 
 $('#flightform').submit(function(event) {
@@ -105,7 +96,12 @@ function queryTravel() {
     }
   }
   if(!departCity || !arriveCity) {
-    return alert('Please enter a valid airport code.');
+    if(!departCity) {
+      return alertify.log('Please enter a valid departure airport.', 'error', 3000);
+    }
+    else {
+      return alertify.log('Please enter a valid arrival airport.', 'error', 3000);
+    }
   }
   var mapsURL = 'https://www.google.com/maps/embed/v1/directions?key=AIzaSyCVzYqt4JIDK3C_xMQcNssaEKeDUxf45aA&origin='+ departAirport+' '+ departCity +'&destination='+ arriveAirport+' '+arriveCity +'&mode=flying';
   $('iframe').attr('src', mapsURL);
@@ -139,9 +135,9 @@ function calcDistance() {
       Δλ = toRadians(lon2-lon1), 
       R = 3959; // mi
 
-var d = Math.round(Math.acos( Math.sin(φ1)*Math.sin(φ2) + Math.cos(φ1)*Math.cos(φ2) * Math.cos(Δλ) ) * R);
+  var d = Math.round(Math.acos( Math.sin(φ1)*Math.sin(φ2) + Math.cos(φ1)*Math.cos(φ2) * Math.cos(Δλ) ) * R);
 
- distanceTraveled = d;
+  distanceTraveled = d;
 }
 
 function decideWhichFacts(distance) {
@@ -158,42 +154,38 @@ function decideWhichFacts(distance) {
 
 //Fun Fact Statements
 function generateStatements(facts) {
-    $('.glance.n1').html('<h3 class="facttitle">Total Distance Traveled: <h2 class="factoid">' + distanceTraveled +'</h2><p class="comment">miles</p>');
-    $('.glance.n2').html('<h3 class="facttitle">Number of hours in the air: <h2 class="factoid">' + facts.hoursInAir(distanceTraveled) +'</h2><p class="comment">Estimate is based on a non-stop flight, and does not factor in head/tail-winds, multiple boarding procedures, or how drunk your pilot might be.</p>');
-    $('.glance.n3').html('<h3 class="facttitle">You\'ll fly on a plane similar to: <h2 class="factoid">' + facts.planeType +'</h2><a href="http://www.airlines-inform.com/commercial-aircraft/" target="_blank"><p class="comment">Click here to learn more about commercial aircraft.</p></a>');
+    $('.glance.n1').html('<h3 class="facttitle">Total Distance Traveled: <h2 class="factoid">' + distanceTraveled +'</h2><p class="comment">miles</p><hr>');
+    $('.glance.n2').html('<h3 class="facttitle">Number of hours in the air: <h2 class="factoid">' + facts.hoursInAir(distanceTraveled) +'</h2><p class="comment">Estimate is based on a non-stop flight, and does not factor in head/tail-winds, multiple boarding procedures, or how drunk your pilot might be.</p><hr>');
+    $('.glance.n3').html('<h3 class="facttitle">You\'ll fly on a plane similar to: <h2 class="factoid">' + facts.planeType +'</h2><a href="http://www.airlines-inform.com/commercial-aircraft/" target="_blank"><p class="comment">Click here to learn more about commercial aircraft.</p></a><hr>');
 
-    $('.air.n1').html('<h3 class="facttitle">Cruising Altitude</h3><h2 class="factoid">' + facts.cruisingAlt +'</h2><p class="comment">feet</p>');
-    $('.air.n2').html('<h3 class="facttitle">Average Flight Speed</h3><h2 class="factoid">' + facts.avgSpeed +'</h2><p class="comment">miles per hour</p>');
+    $('.air.n1').html('<h3 class="facttitle">Cruising Altitude</h3><h2 class="factoid">' + facts.cruisingAlt +'</h2><p class="comment">feet</p><hr>');
+    $('.air.n2').html('<h3 class="facttitle">Average Flight Speed</h3><h2 class="factoid">' + facts.avgSpeed +'</h2><p class="comment">miles per hour</p><hr>');
 
-    $('.flight.n1').html('<h3 class="facttitle">There will be around</h3><h2 class="factoid">' + facts.avgPeople +'</h2><p class="comment">people on your flight</p>');
-    $('.flight.n2').html('<h3 class="facttitle">Number of Flight Attendants</h3><h2 class="factoid">' + facts.flightAttendants +'</h2><p class="comment">' + facts.faComment + '</p>');
-    $('.flight.n3').html('<h3 class="facttitle">Will a meal be served?</h3><h2 class="factoid">' + facts.meal +'</h2><p class="comment">' + facts.mealComment + '</p>');
+    $('.flight.n1').html('<h3 class="facttitle">There will be around</h3><h2 class="factoid">' + facts.avgPeople +'</h2><p class="comment">people on your flight</p><hr>');
+    $('.flight.n2').html('<h3 class="facttitle">Number of Flight Attendants</h3><h2 class="factoid">' + facts.flightAttendants +'</h2><p class="comment">' + facts.faComment + '</p><hr>');
+    $('.flight.n3').html('<h3 class="facttitle">Will a meal be served?</h3><h2 class="factoid">' + facts.meal +'</h2><p class="comment">' + facts.mealComment + '</p><hr>');
 }
 
-$('.first').click(function () {
-  $('.carousel').addClass('hide');
-  $('.ataglance').removeClass('hide');
-  $('.ataglance').slick({
-  adaptiveHeight: true,
-  dots: true
-  });
+$('.first').click(function() {
+  $('.carousel').fadeOut('slow').addClass('hide');
+  $('.ataglance').removeClass('hide').fadeIn('slow');
 });
 
-$('.second').click(function () {
-  $('.carousel').addClass('hide');
+$('.second').click(function() {
+  $('.carousel').fadeOut('slow').addClass('hide');
   $('.intheair').removeClass('hide');
   $('.intheair').slick({
   adaptiveHeight: true,
   dots: true
-  });
+  }).fadeIn('slow');
 });
 
-$('.third').click(function () {
-  $('.carousel').addClass('hide');
+$('.third').click(function() {
+  $('.carousel').fadeOut('slow').addClass('hide');
   $('.inyourflight').removeClass('hide');
   $('.inyourflight').slick({
   adaptiveHeight: true,
   dots: true
-  });
+  }).fadeIn('slow');
 });
 

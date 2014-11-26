@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <title>Up In The Air: Flight Path Visualizer</title>
+  <link rel="icon" type="image/png" href="favicon.ico">
   <link rel="stylesheet" href="css/normalize.css">
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+  <link rel="stylesheet" href="css/alertify.core.css">
+  <link rel="stylesheet" href="css/alertify.default.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -27,6 +29,7 @@
     <div class="welcome">
       <h1 class="title">Up in the Air</h1>
       <h2 class="tagline">Flight Path Visualizer</h2>
+      <hr>
 
       <form id="flightform">
       <h2 id="formtitle">Enter your flight information:</h2>
@@ -36,6 +39,7 @@
           <label for="arrive">arrival airport:</label>
           <input class="inputBox" type="text" name="arrive" id="arrive" placeholder="e.g. JFK" maxlength="3">
           <input id="submit" type="submit" value="Submit">
+          <span class="explain">What is this all about?</span>
         </div>
       </form>
     </div>
@@ -59,7 +63,7 @@
     </div>
   </div>
 
-  <div class="facts">
+  <div class="facts hide">
 
     <div class="heading white">
       <div class="decorativearrow white"></div>
@@ -104,6 +108,7 @@
   <script type="text/javascript" src="js/jquery-scrollto.js"></script>
   <script type="text/javascript" src="js/jquery.goup.min.js"></script>
   <script type="text/javascript" src="slick/slick.min.js"></script>
+  <script type="text/javascript" src="js/alertify.min.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
