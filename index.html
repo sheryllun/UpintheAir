@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="pageTop">
+  <section class="pageTop">
     <div id="clouds">
       <div class="cloud x1"></div>
       <div class="cloud x2"></div>
@@ -35,7 +35,7 @@
       <h2 id="formtitle">Enter your flight information:</h2>
         <div class="inputwrapper">
           <label for="depart">departure airport:</label>
-          <input class="inputBox" id="depart" name="depart" type="text"placeholder="e.g. SFO" maxlength="3">
+          <input class="inputBox" id="depart" name="depart" type="text" placeholder="e.g. SFO" maxlength="3">
           <label for="arrive">arrival airport:</label>
           <input class="inputBox" type="text" name="arrive" id="arrive" placeholder="e.g. JFK" maxlength="3">
           <input id="submit" type="submit" value="Submit">
@@ -43,9 +43,9 @@
         </div>
       </form>
     </div>
-  </div>
+  </section>
 
-  <div id="map">
+  <section id="map">
     <div class="heading">
     <div class="decorativearrow"></div>
       <h3 class="headingtext">Your Flight Route:</h3>
@@ -54,23 +54,20 @@
       <h3>Please enter your flight details to see your route</h3>
     </div>
     <div class="overlay" onClick="style.pointerEvents='none'"></div>
-    <iframe
-      width="100%"
-      frameborder="0" style="border:0">
-    </iframe>
+    <iframe></iframe>
     <div class="btnwrapper">
       <button class="factsbtn">Tell me more!</button>
     </div>
-  </div>
+  </section>
 
-  <div class="facts hide">
+  <section class="facts hide">
 
     <div class="heading white">
       <div class="decorativearrow white"></div>
       <h3 class="headingtext">Fun Facts about your trip:</h3>
     </div>
     <div class="wrapper">
-      <section class="topicsection">
+      <div class="topicsection">
         <div class="topics first">
           <h3 class="topicname">At A Glance</h3>
           <p class="topicname">&#62;&#62;</p>
@@ -83,9 +80,9 @@
           <h3 class="topicname">On Your Flight</h3>
           <p class="topicname">&#62;&#62;</p>
         </div>
+      </div>
 
-      </section>
-      <section class="carouselwrapper">
+      <div class="carouselwrapper">
         <div class="carousel ataglance">
           <div class="card glance n1"></div>
           <div class="card glance n2"></div>
@@ -100,9 +97,9 @@
           <div class="card flight n2"></div>
           <div class="card flight n3"></div>
         </div>
-      </section>
+      </div>
     </div>
-  </div>
+  </section>
 
   <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/jquery-scrollto.js"></script>

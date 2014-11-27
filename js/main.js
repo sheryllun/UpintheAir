@@ -4,6 +4,16 @@ var airportData;
 //     airportData = data;
 //   });
 
+$.ajax({
+  url: 'https://s3.amazonaws.com/airportinformation/airports.json',
+  type: 'GET',
+  dataType: 'json',
+  jsonpCallback:'flightData',
+  success: function(data) {
+    airportData = data;
+  }
+});
+
 var planeFacts = {
   longDistance: {
     cruisingAlt: 39000,
@@ -32,7 +42,7 @@ var planeFacts = {
     },
     planeType: "Airbus A321,<br>Airbus A319,<br>Boeing 757",
     flightAttendants: "2-4",
-    faComment: "Protip: If you bring your flight attendant donuts, they will treat you better.",
+    faComment: "Protip: Bring your flight attendants treats (like donuts); they will treat you better.",
     avgPeople: "100-250",
     meal: "Maybe, maybe not.",
     mealComment: "If your flight is international, then yes. Otherwise, prepare to pay lots of money for a soggy sandwich or bag of chips."
@@ -54,16 +64,6 @@ var planeFacts = {
     mealComment: "If you're lucky, you might get a bag of peanuts."
   }
 }
-
-$.ajax({
-  url: 'https://s3.amazonaws.com/airportinformation/airports.json',
-  type: 'GET',
-  dataType: 'json',
-  jsonpCallback:'flightData',
-  success: function(data) {
-    airportData = data;
-  }
-});
 
 $.goup({
   title: 'back to top',
@@ -174,7 +174,7 @@ $('.first').click(function() {
 $('.second').click(function() {
   $('.carousel').fadeOut('slow').addClass('hide');
   $('.intheair').removeClass('hide');
-  $('.intheair').slick({
+   $('.intheair').slick({
   adaptiveHeight: true,
   dots: true
   }).fadeIn('slow');
