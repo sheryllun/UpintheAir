@@ -42,7 +42,7 @@ var planeFacts = {
     },
     planeType: "Airbus A321,<br>Airbus A319,<br>Boeing 757",
     flightAttendants: "2-4",
-    faComment: "Protip: Bring your flight attendants treats (like donuts); they will treat you better.",
+    faComment: "Protip: Bring your flight attendants treats (like donuts); you might score a free drink.",
     avgPeople: "100-250",
     meal: "Maybe, maybe not.",
     mealComment: "If your flight is international, then yes. Otherwise, prepare to pay lots of money for a soggy sandwich or bag of chips."
@@ -70,13 +70,14 @@ $.goup({
   containerRadius: 100
 });
 
-$('.explain').click(function() {
+$('.fa').click(function() {
   alertify.alert('<h2>Welcome to Up in the Air</h2><p>Visualize your trip\'s flight path and learn more about your flight. Simply enter your departure and arrival airports and let us do the rest.</p><p>Even if you\'re not flying anywhere, refer to this <a href="http://www.expedia.com/daily/airports/AirportCodes.asp" target="_blank">list of airport codes</a> and enjoy!');
 });
 
 $('#flightform').submit(function(event) {
   event.preventDefault();
   queryTravel();
+  $('.overlay').removeClass('hide');
   $('.facts').addClass('hide');
 });
 
