@@ -77,6 +77,7 @@ $('.explain').click(function() {
 $('#flightform').submit(function(event) {
   event.preventDefault();
   queryTravel();
+  $('.facts').addClass('hide');
 });
 
 function queryTravel() {
@@ -174,7 +175,7 @@ $('.first').click(function() {
 $('.second').click(function() {
   $('.carousel').fadeOut('slow').addClass('hide');
   $('.intheair').removeClass('hide');
-   $('.intheair').slick({
+  $('.intheair').slick({
   adaptiveHeight: true,
   dots: true
   }).fadeIn('slow');
