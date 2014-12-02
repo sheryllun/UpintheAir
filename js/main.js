@@ -1,5 +1,6 @@
 var airportData;
 
+//backup JSON file if the Amazon hosted one doesn't work
 // $.getJSON('https://dl.dropboxusercontent.com/u/4292615/airports.json', function(data) {
 //     airportData = data;
 //   });
@@ -20,9 +21,9 @@ var planeFacts = {
     avgSpeed: 550,
     hoursInAir: function(distance) {
       var time = ((distance / this.avgSpeed)*60) + 60;
-      var hours = Math.floor(time/60);
-      var minutes = Math.round(time % 60);
-      return hours + " hours and " + minutes + " minutes";
+      var hours = Math.floor(time/60) + " hours and ";
+      var minutes = Math.round(time % 60) + " minutes";
+      return hours + minutes;
     },
     planeType: "Boeing 767,<br>Boeing 777,<br>Airbus A380",
     flightAttendants: "4-6",
@@ -36,9 +37,9 @@ var planeFacts = {
     avgSpeed: 530,
     hoursInAir: function(distance) {
       var time = ((distance / this.avgSpeed)*60) + 60;
-      var hours = Math.floor(time/60);
-      var minutes = Math.round(time % 60);
-      return hours + " hours and " + minutes + " minutes";
+      var hours = Math.floor(time/60) + " hours and ";
+      var minutes = Math.round(time % 60) + " minutes";
+      return hours + minutes;
     },
     planeType: "Airbus A321,<br>Airbus A319,<br>Boeing 757",
     flightAttendants: "2-4",
@@ -53,8 +54,11 @@ var planeFacts = {
     hoursInAir: function(distance) {
       var time = ((distance / this.avgSpeed)*60) + 30;
       var hours = Math.floor(time/60);
-      var minutes = Math.round(time % 60);
-      return hours + " hours and " + minutes + " minutes";
+      if(hours == 1) hours = hours + " hour and ";
+      else if(hours == 0) hours = "";
+      else hours = hours + " hours and ";
+      var minutes = Math.round(time % 60) + " minutes";
+      return hours + minutes;
     },
     planeType: "Bombardier CRJ-200<br>Embraer ERT-140",
     flightAttendants: "1-2",
