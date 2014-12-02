@@ -125,6 +125,14 @@ $('.factsbtn').click(function() {
   adaptiveHeight: true,
   dots: true
   });
+  $('.intheair').slick({
+  adaptiveHeight: true,
+  dots: true
+  }).addClass('hide');
+   $('.inyourflight').slick({
+  adaptiveHeight: true,
+  dots: true
+  }).addClass('hide');
 });
 
 // Spherical law of cosines calculation script from http://www.movable-type.co.uk/scripts/latlong.html
@@ -176,23 +184,18 @@ function generateStatements(facts) {
 $('.first').click(function() {
   $('.carousel').fadeOut('slow').addClass('hide');
   $('.ataglance').removeClass('hide').fadeIn('slow');
+  $('.ataglance')[0].slick.setPosition();
 });
 
 $('.second').click(function() {
   $('.carousel').fadeOut('slow').addClass('hide');
-  $('.intheair').removeClass('hide');
-  $('.intheair').slick({
-  adaptiveHeight: true,
-  dots: true
-  }).fadeIn('slow');
+  $('.intheair').removeClass('hide').fadeIn('slow');
+  $('.intheair')[0].slick.setPosition();
 });
 
 $('.third').click(function() {
   $('.carousel').fadeOut('slow').addClass('hide');
-  $('.inyourflight').removeClass('hide');
-  $('.inyourflight').slick({
-  adaptiveHeight: true,
-  dots: true
-  }).fadeIn('slow');
+  $('.inyourflight').removeClass('hide').fadeIn('slow');
+  $('.inyourflight')[0].slick.setPosition();
 });
 
