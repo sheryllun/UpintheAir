@@ -67,7 +67,7 @@ var planeFacts = {
     meal: "Probably not",
     mealComment: "If you're lucky, you might get a bag of peanuts."
   }
-}
+};
 
 $.goup({
   title: 'back to top',
@@ -172,6 +172,7 @@ function generateStatements(facts) {
     $('.flight.n3').html('<h3 class="facttitle">Will a meal be served?</h3><h2 class="factoid">' + facts.meal +'</h2><p class="comment">' + facts.mealComment + '</p><hr>');
 }
 
+//Activate/hide carousel cards
 $('.first').click(function() {
   $('.carousel').fadeOut('slow').addClass('hide');
   $('.ataglance').removeClass('hide').fadeIn('slow');
