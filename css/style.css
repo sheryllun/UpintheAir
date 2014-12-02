@@ -140,10 +140,7 @@ Fluffy clouds CSS!
   height: 60px;
   background-color: white;
   border-radius: 200px;
-  -moz-border-radius: 200px;
-  -webkit-border-radius: 200px;
   position: relative;
-  
   -moz-box-shadow: 9px -7px 0 0 #f7e7eb inset;
   -webkit-box-shadow: 9px -7px 0 0 #f7e7eb inset;
   box-shadow: 9px -7px 0 0 #f7e7eb inset;
@@ -183,6 +180,7 @@ Fluffy clouds CSS!
   -webkit-animation: moveclouds 45s linear infinite;
   -moz-animation: moveclouds 45s linear infinite;
   -o-animation: moveclouds 45s linear infinite;
+  animation: moveclouds 45s linear infinite;
 }
 
 .x2 {
@@ -194,6 +192,7 @@ Fluffy clouds CSS!
   -webkit-animation: moveclouds 40s linear infinite;
   -moz-animation: moveclouds 40s linear infinite;
   -o-animation: moveclouds 40s linear infinite;
+  animation: moveclouds 40s linear infinite;
 }
 
 .x3 {
@@ -206,6 +205,7 @@ Fluffy clouds CSS!
   -webkit-animation: moveclouds 35s linear infinite;
   -moz-animation: moveclouds 35s linear infinite;
   -o-animation: moveclouds 35s linear infinite;
+  animation: moveclouds 35s linear infinite;
 }
 
 .x4 {
@@ -217,6 +217,7 @@ Fluffy clouds CSS!
   -webkit-animation: moveclouds 48s linear infinite;
   -moz-animation: moveclouds 48s linear infinite;
   -o-animation: moveclouds 48s linear infinite;
+  animation: moveclouds 48s linear infinite;
 }
 
 .x5 {
@@ -228,6 +229,7 @@ Fluffy clouds CSS!
   -webkit-animation: moveclouds 35s linear infinite;
   -moz-animation: moveclouds 35s linear infinite;
   -o-animation: moveclouds 35s linear infinite;
+  animation: moveclouds 35s linear infinite;
 
 }
 
@@ -242,6 +244,7 @@ Fluffy clouds CSS!
    -webkit-animation: moveclouds 31s linear infinite;
   -moz-animation: moveclouds 31s linear infinite;
   -o-animation: moveclouds 31s linear infinite;
+  animation: moveclouds 31s linear infinite;
 }
 
 .x7 {
@@ -255,6 +258,7 @@ Fluffy clouds CSS!
   -webkit-animation: moveclouds 30s linear infinite;
   -moz-animation: moveclouds 30s linear infinite;
   -o-animation: moveclouds 30s linear infinite;
+  animation: moveclouds 30s linear infinite;
 }
 
 @-webkit-keyframes moveclouds {
@@ -268,6 +272,11 @@ Fluffy clouds CSS!
 }
 
 @-o-keyframes moveclouds {
+  0% {margin-left: 1200px;}
+  100% {margin-left: -1000px;}
+}
+
+@keyframes moveclouds {
   0% {margin-left: 1200px;}
   100% {margin-left: -1000px;}
 }
@@ -364,6 +373,7 @@ Facts portion CSS
 
 .wrapper {
   display: flex;
+  display: -webkit-flex;
 }
 
 .topicsection {
@@ -482,9 +492,9 @@ hr {
   border: 0;
   height: 1px;
   background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.3), rgba(0,0,0,0)); 
-  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.3), rgba(0,0,0,0)); 
-  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.3), rgba(0,0,0,0)); 
-  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.3), rgba(0,0,0,0)); 
+  background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.3), rgba(0,0,0,0)); 
+  background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.3), rgba(0,0,0,0)); 
+  background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.3), rgba(0,0,0,0)); 
 }
 
 .slick-dots {

@@ -71,7 +71,7 @@ $.goup({
 });
 
 $('.fa').click(function() {
-  alertify.alert('<h2>Welcome to Up in the Air</h2><p>Visualize your trip\'s flight path and learn more about your flight. Simply enter your departure and arrival airports and let us do the rest.</p><p>Even if you\'re not flying anywhere, refer to this <a href="http://www.expedia.com/daily/airports/AirportCodes.asp" target="_blank">list of airport codes</a> and enjoy!');
+  alertify.alert('<h2>Welcome to Up in the Air</h2><p>Visualize your trip\'s flight path and learn more about your flight. Simply enter your departure and arrival airports and let us do the rest.</p><p>If you\'re not flying anywhere, pick two codes from this <a href="http://www.expedia.com/daily/airports/AirportCodes.asp" target="_blank">list of airport codes</a> to use with the app!');
 });
 
 $('#flightform').submit(function(event) {
