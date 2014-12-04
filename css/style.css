@@ -117,6 +117,10 @@ label {
   text-transform: none;
 }
 
+.fa {
+  margin: 0 8px;
+}
+
 .fa:hover {
   color: #008FDB;
   cursor: pointer;

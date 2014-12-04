@@ -74,8 +74,12 @@ $.goup({
   containerRadius: 100
 });
 
-$('.fa').click(function() {
+$('.fa-question-circle').click(function() {
   alertify.alert('<h2>Welcome to Up in the Air</h2><p>Visualize your trip\'s flight path and learn more about your flight. Simply enter your departure and arrival airports and let us do the rest.</p><p>If you\'re not flying anywhere, pick two codes from this <a href="http://www.expedia.com/daily/airports/AirportCodes.asp" target="_blank">list of airport codes</a> to use with the app!');
+});
+
+$('.fa-info-circle').click(function() {
+  alertify.alert('<p>Up in the Air was created by Sheryl Lun as the final project for General Assembly\'s Front End Web Development course.</p><p>Questions? Comments? Collaboration?</p><p>I\'d love to hear from you!</p><p><a href="mailto:sheryl.v.lun@gmail.com"><i class="fa fa-envelope fa-2x"></i></a><a href="https://www.linkedin.com/pub/sheryl-lun/34/b27/902" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a><a href="http://github.com/sheryllun" target="_blank"><i class="fa fa-github fa-2x"></i></a></p>');
 });
 
 $('#flightform').submit(function(event) {
